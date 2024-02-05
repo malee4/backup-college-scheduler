@@ -21,7 +21,7 @@ tools:context=".ui.CourseUI.HomeFragment">
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="Course Fragment"/>
+        android:text="Courses"/>
 
     <!--RecyclerView-->
     <androidx.recyclerview.widget.RecyclerView
