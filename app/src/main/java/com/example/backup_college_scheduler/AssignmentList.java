@@ -16,6 +16,7 @@ public class AssignmentList {
     private static ArrayList<Assignment> list = new ArrayList<>();
 
     public static ArrayList<Assignment> getAssignmentData() {
+        list.clear();
         list.add(new Assignment("Complete HW02", "CS1332", "2024:03:01"));
         list.add(new Assignment("Read chapters 12-15", "ENGL1102", "2024:02:27"));
         return list;
