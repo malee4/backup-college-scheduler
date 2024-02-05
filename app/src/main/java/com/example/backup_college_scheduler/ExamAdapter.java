@@ -20,7 +20,7 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
     public ExamAdapter.ExamViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the layout for each item and return a new ViewHolder object
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.exam_list, parent, false);
-        return new ExamAdapter.ExamViewHolder(itemView);
+        return new ExamViewHolder(itemView).linkAdapter(this);
     }
 
     @Override
@@ -43,6 +43,8 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
         private TextView examLocation;
         private TextView examTime;
 
+        private ExamAdapter adapter;
+
 
         public ExamViewHolder(View itemView) {
             super(itemView);
@@ -50,6 +52,11 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
             examCourseName = itemView.findViewById(R.id.examCourseName);
             examLocation = itemView.findViewById(R.id.examLocation);
             examTime = itemView.findViewById(R.id.examTime);
+        }
+
+        public ExamAdapter.ExamViewHolder linkAdapter(ExamAdapter adapter) {
+            this.adapter = adapter;
+            return this;
         }
     }
 }

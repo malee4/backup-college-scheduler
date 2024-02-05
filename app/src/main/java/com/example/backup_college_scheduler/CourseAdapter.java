@@ -20,7 +20,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     public CourseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the layout for each item and return a new ViewHolder object
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_list, parent, false);
-        return new CourseViewHolder(itemView);
+        return new CourseViewHolder(itemView).linkAdapter(this);
     }
 
     @Override
@@ -43,6 +43,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         private TextView courseDescription;
         private TextView courseTime;
 
+        private CourseAdapter adapter;
+
 
         public CourseViewHolder(View itemView) {
             super(itemView);
@@ -51,6 +53,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             courseDescription = itemView.findViewById(R.id.courseDescription);
             courseTime = itemView.findViewById(R.id.courseTime);
         }
+
+        public CourseAdapter.CourseViewHolder linkAdapter(CourseAdapter adapter) {
+            this.adapter = adapter;
+            return this;
+        }
     }
+
+
 
 }
