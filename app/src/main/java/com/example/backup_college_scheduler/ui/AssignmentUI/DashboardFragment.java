@@ -40,7 +40,7 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard,
+        return inflater.inflate(R.layout.fragment_assignments,
                 container, false);
     }
 

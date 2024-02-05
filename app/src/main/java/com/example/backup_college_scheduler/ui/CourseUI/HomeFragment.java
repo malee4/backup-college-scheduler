@@ -4,24 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.backup_college_scheduler.Assignment;
-import com.example.backup_college_scheduler.AssignmentAdapter;
-import com.example.backup_college_scheduler.AssignmentList;
 import com.example.backup_college_scheduler.Course;
 import com.example.backup_college_scheduler.CourseAdapter;
 import com.example.backup_college_scheduler.CourseList;
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.databinding.FragmentHomeBinding;
-import com.example.backup_college_scheduler.ui.AssignmentUI.DashboardFragment;
 
 import java.util.ArrayList;
 
@@ -45,7 +38,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home,
+        return inflater.inflate(R.layout.fragment_courses,
                 container, false);
     }
 
