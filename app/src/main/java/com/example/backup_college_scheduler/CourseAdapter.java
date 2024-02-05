@@ -52,6 +52,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             instructor = itemView.findViewById(R.id.instructor);
             courseDescription = itemView.findViewById(R.id.courseDescription);
             courseTime = itemView.findViewById(R.id.courseTime);
+
+            itemView.findViewById(R.id.deleteCourseButton).setOnClickListener(view -> {
+                if (adapter.courseList != null) {
+                    adapter.courseList.remove(getAdapterPosition());
+                    adapter.notifyItemRemoved(getAdapterPosition());
+                }
+            });
         }
 
         public CourseAdapter.CourseViewHolder linkAdapter(CourseAdapter adapter) {
