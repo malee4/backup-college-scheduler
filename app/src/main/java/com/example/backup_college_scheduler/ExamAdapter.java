@@ -52,6 +52,13 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
             examCourseName = itemView.findViewById(R.id.examCourseName);
             examLocation = itemView.findViewById(R.id.examLocation);
             examTime = itemView.findViewById(R.id.examTime);
+
+            itemView.findViewById(R.id.deleteExamButton).setOnClickListener(view -> {
+                if (adapter.examList != null) {
+                    adapter.examList.remove(getAdapterPosition());
+                    adapter.notifyItemRemoved(getAdapterPosition());
+                }
+            });
         }
 
         public ExamAdapter.ExamViewHolder linkAdapter(ExamAdapter adapter) {
