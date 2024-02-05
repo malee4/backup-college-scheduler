@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--LinearLayout orientation horizontal -->
-<!--    public String name;-->
-
-<!--    public String courseName;-->
-
-<!--    public String dueDate;-->
-
-<!--    public boolean done;-->
-
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
