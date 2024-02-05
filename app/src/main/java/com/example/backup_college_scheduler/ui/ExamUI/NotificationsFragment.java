@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler.ui.notifications;
+package com.example.backup_college_scheduler.ui.ExamUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

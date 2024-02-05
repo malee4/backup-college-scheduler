@@ -1,4 +1,4 @@
-
+package com.example.backup_college_scheduler;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -7,11 +7,9 @@ public class Assignment implements Serializable {
 
     public String name;
 
-    public String description;
+    public String courseName;
 
-    public int courseId;
-
-    public Date dueDate;
+    public String dueDate;
 
     public boolean done;
 
@@ -19,24 +17,19 @@ public class Assignment implements Serializable {
 
     public Assignment() {
         this.name = "";
-        this.description = "";
-        this.courseId = 0;
+        this.courseName = "";
         this.dueDate = null;
         this.done = false;
 //        this.notificationTime = null;
     }
 
     public Assignment(String name,
-                      String description,
-                      int courseId,
-                      Date dueDate,
-                      boolean done,
-                      Date notificationTime) {
+                      String courseName,
+                      String dueDate) {
         this.name = name;
-        this.description = description;
-        this.courseId = courseId;
+        this.courseName = courseName;
         this.dueDate = dueDate;
-        this.done = done;
+        this.done = false;
 //        this.notificationTime = notificationTime;
     }
 
@@ -48,27 +41,19 @@ public class Assignment implements Serializable {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
-    }
-
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 

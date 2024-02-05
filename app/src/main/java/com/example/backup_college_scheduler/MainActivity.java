@@ -35,3 +35,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+//import android.os.Bundle;
+//import android.view.View;
+//import android.widget.Button;
+//import androidx.appcompat.app.AppCompatActivity;
+//import androidx.fragment.app.Fragment;
+//
+//public class MainActivity extends AppCompatActivity {
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState)
+//    {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        // Get a reference to the "btn_frag" button from the
+//        // layout
+//        Button btn = findViewById(R.id.btn_frag);
+//
+//        // Set an OnClickListener on the button
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override public void onClick(View v)
+//            {
+//                // When the button is clicked, replace
+//                // the current fragment with a new
+//                // instance of the FirstFragment
+//                replaceFragment(new FirstFragment());
+//
+//                // Hide the button
+//                btn.setVisibility(View.GONE);
+//            }
+//        });
+//    }
+//
+//    // This method replaces the current fragment
+//    // with a new fragment
+//    public void replaceFragment(Fragment fragment)
+//    {
+//        // Get a reference to the FragmentManager
+//        androidx.fragment.app
+//                .FragmentManager fragmentManager
+//                = getSupportFragmentManager();
+//
+//        // Start a new FragmentTransaction
+//        androidx.fragment.app
+//                .FragmentTransaction fragmentTransaction
+//                = fragmentManager.beginTransaction();
+//
+//        // Replace the current fragment with the new
+//        // fragment
+//        fragmentTransaction.replace(R.id.frame_layout,
+//                fragment);
+//
+//        // Commit the FragmentTransaction
+//        fragmentTransaction.commit();
+//    }
+//}
