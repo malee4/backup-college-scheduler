@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler.ui.CourseUI;
+package com.example.backup_college_scheduler.ui.ExamUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +11,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.backup_college_scheduler.back.Course.Course;
-import com.example.backup_college_scheduler.back.Course.CourseAdapter;
-import com.example.backup_college_scheduler.back.Course.CourseList;
+import com.example.backup_college_scheduler.back.Exam.Exam;
+import com.example.backup_college_scheduler.back.Exam.ExamAdapter;
+import com.example.backup_college_scheduler.back.Exam.ExamList;
 import com.example.backup_college_scheduler.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class HomeFragment extends Fragment {
-
+public class ExamFragment extends Fragment {
     private String param1;
     private String param2;
     @Override
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_courses,
+        return inflater.inflate(R.layout.fragment_exams,
                 container, false);
     }
 
@@ -48,9 +49,9 @@ public class HomeFragment extends Fragment {
                   @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        ArrayList<Course> courseList
-                = CourseList.getCourseData();
-        CourseAdapter itemAdapter = new CourseAdapter(courseList);
+        ArrayList<Exam> examList
+                = ExamList.getExamData();
+        ExamAdapter itemAdapter = new ExamAdapter(examList);
         // Set the LayoutManager that
         // this RecyclerView will use.
         RecyclerView recyclerView
@@ -60,13 +61,37 @@ public class HomeFragment extends Fragment {
         // adapter instance is set to the
         // recyclerview to inflate the items.
         recyclerView.setAdapter(itemAdapter);
+
+        view.findViewById(R.id.sortExamByClass).setOnClickListener(fragmentView -> {
+            if (examList != null) {
+                Collections.sort(examList, new Comparator<Exam>() {
+                    @Override
+                    public int compare(Exam a, Exam b) {
+                        return a.getCourseName().compareTo(b.getCourseName());
+                    }
+                });
+                itemAdapter.notifyDataSetChanged();
+            }
+        });
+
+        view.findViewById(R.id.sortExamByDueDate).setOnClickListener(fragmentView -> {
+            if (examList != null) {
+                Collections.sort(examList, new Comparator<Exam>() {
+                    @Override
+                    public int compare(Exam a, Exam b) {
+                        return a.getTime().compareTo(b.getTime());
+                    }
+                });
+                itemAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
 
-    public static HomeFragment newInstance(String param1,
-                                                String param2)
+    public static ExamFragment newInstance(String param1,
+                                           String param2)
     {
-        HomeFragment fragment = new HomeFragment();
+        ExamFragment fragment = new ExamFragment();
         Bundle args = new Bundle();
         args.putString("param1", param1);
         args.putString("param2", param2);
