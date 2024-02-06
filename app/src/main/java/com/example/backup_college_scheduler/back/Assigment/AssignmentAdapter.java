@@ -41,6 +41,11 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
         return assignmentList.size();
     }
 
+    public void addNewAssignment(Assignment a) {
+        this.assignmentList.add(a);
+        this.notifyItemInserted(assignmentList.size());
+    }
+
     public static class AssignmentViewHolder extends RecyclerView.ViewHolder {
         private TextView assignmentName;
         private TextView assignmentCourse;
@@ -60,8 +65,6 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
                     adapter.notifyItemRemoved(getAdapterPosition());
                 }
             });
-
-
         }
 
         public AssignmentViewHolder linkAdapter(AssignmentAdapter adapter) {
