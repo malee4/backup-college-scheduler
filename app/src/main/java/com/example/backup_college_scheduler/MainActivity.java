@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
     }
-
 //    void showCustomDialog() {
 //        Dialog dialog = new Dialog(MainActivity.this);
 //        dialog.setCancelable(true);

@@ -70,21 +70,6 @@ public class AssignmentFragment extends Fragment {
         // recyclerview to inflate the items.
         recyclerView.setAdapter(itemAdapter);
 
-        view.findViewById(R.id.addAssignmentButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog dialog = new AlertDialog.Builder(getContext()).create(); //Read Update
-                dialog.setContentView(R.layout.add_update_assignment);
-                dialog.show();
-            }
-        });
-
-//        itemView.findViewById(R.id.assignmentDoneButton).setOnClickListener(view -> {
-//            if (adapter.assignmentList != null) {
-//                adapter.assignmentList.remove(getAdapterPosition());
-//                adapter.notifyItemRemoved(getAdapterPosition());
-//            }
-//        });
         view.findViewById(R.id.sortAssignmentByClass).setOnClickListener(fragmentView -> {
             if (assignmentList != null) {
                 Collections.sort(assignmentList, new Comparator<Assignment>() {
@@ -107,7 +92,45 @@ public class AssignmentFragment extends Fragment {
                 });
             }
         });
+
+        Button openDialog = view.findViewById(R.id.addAssignmentButton);
+        openDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_add_new_assignment);
+
+                EditText nameEt = dialog.findViewById(R.id.newAssignmentName);
+                EditText courseEt = dialog.findViewById(R.id.newAssignmentCourse);
+                EditText dueDateEt = dialog.findViewById(R.id.newAssignmentDueDate);
+                Button submitButton = dialog.findViewById(R.id.newAssignmentAddButton);
+
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = nameEt.getText().toString();
+                        String course = courseEt.getText().toString();
+                        String dueDate = dueDateEt.getText().toString();
+                        AssignmentFragment.itemAdapter.addNewAssignment(new Assignment(name, course, dueDate));
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
+
+//        view.findViewById(R.id.addAssignmentButton).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog dialog = new AlertDialog.Builder(getContext()).create(); //Read Update
+//                dialog.setContentView(R.layout.fragment_add_new_assignment);
+//                dialog.show();
+//            }
+//        });
     }
+
 
 
     public static AssignmentFragment newInstance(String param1,
