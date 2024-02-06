@@ -1,5 +1,6 @@
+package com.example.backup_college_scheduler;
+
 import java.io.Serializable;
-import java.util.Date;
 
 public class Exam implements Serializable {
     private String name;
@@ -12,15 +13,12 @@ public class Exam implements Serializable {
 
     private String time;
 
-//    public Date notificationTime;
-
     public Exam() {
         this.name = "";
         this.description = "";
         this.courseName = "";
         this.location = "";
         this.time = "";
-//        this.notificationTime = null;
     }
 
     public Exam(String name,
@@ -33,7 +31,6 @@ public class Exam implements Serializable {
         this.courseName = courseName;
         this.location = location;
         this.time = time;
-//        this.notificationTime = notificationTime;
     }
 
     public String getName() {
@@ -75,12 +72,4 @@ public class Exam implements Serializable {
     public void setTime(String time) {
         this.time = time;
     }
-
-    //    public Date getNotificationTime() {
-//        return notificationTime;
-//    }
-//
-//    public void setNotificationTime(Date notificationTime) {
-//        this.notificationTime = notificationTime;
-//    }
 }

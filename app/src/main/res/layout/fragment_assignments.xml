@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.AssignmentUI.DashboardFragment">
+
+    <!--Linear layout orientation vertical-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--TextView-->
+
+        <TextView
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Assignments"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!--RecyclerView-->
+
+        <Button
+            android:id="@+id/addAssignmentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Assignment"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sortAssignmentByClass"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:text="Sort by Class" />
+
+            <Button
+                android:id="@+id/sortAssignmentByDueDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sort by Due Date" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/assignment_list" />
+
+    </LinearLayout>
+
+</LinearLayout>

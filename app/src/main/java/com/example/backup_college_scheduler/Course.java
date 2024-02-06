@@ -1,3 +1,5 @@
+package com.example.backup_college_scheduler;
+
 import java.io.Serializable;
 
 public class Course implements Serializable {
