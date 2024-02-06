@@ -1,5 +1,7 @@
 package com.example.backup_college_scheduler.back.Course;
 
+import com.example.backup_college_scheduler.back.Todo.Todo;
+
 import java.io.Serializable;
 
 public class Course implements Serializable {
@@ -25,6 +27,21 @@ public class Course implements Serializable {
         this.description = description;
         this.instructor = instructor;
         this.courseTime = courseTime;
+    }
+
+    public void update(Course t) {
+        if (!t.name.equals("")) {
+            this.name = t.name;
+        }
+        if (!t.description.equals("")) {
+            this.description = t.description;
+        }
+        if (!t.instructor.equals("")) {
+            this.instructor = t.instructor;
+        }
+        if (!t.courseTime.equals("")) {
+            this.courseTime = t.courseTime;
+        }
     }
 
     public String getName() {

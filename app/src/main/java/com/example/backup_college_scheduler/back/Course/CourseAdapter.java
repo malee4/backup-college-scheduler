@@ -1,8 +1,11 @@
 package com.example.backup_college_scheduler.back.Course;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,6 +63,37 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                 if (adapter.courseList != null) {
                     adapter.courseList.remove(getAdapterPosition());
                     adapter.notifyItemRemoved(getAdapterPosition());
+                }
+            });
+
+            itemView.findViewById(R.id.editCourseButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Dialog dialog = new Dialog(view.getContext());
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.fragment_edit_course);
+
+                    EditText nameEt = dialog.findViewById(R.id.updateCourseName);
+                    EditText descriptionEt = dialog.findViewById(R.id.updateCourseDescription);
+                    EditText instructorEt = dialog.findViewById(R.id.updateCourseInstructor);
+                    EditText timeEt = dialog.findViewById(R.id.updateCourseTime);
+                    Button submitButton = dialog.findViewById(R.id.updateCourseButton);
+
+                    submitButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String name = nameEt.getText().toString();
+                            String description = descriptionEt.getText().toString();
+                            String instructor = instructorEt.getText().toString();
+                            String time = timeEt.getText().toString();
+                            Course course = adapter.courseList.get(getAdapterPosition());
+                            course.update(new Course(name, description, instructor, time));
+                            adapter.notifyItemChanged(getAdapterPosition());
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
                 }
             });
         }

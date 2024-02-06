@@ -1,8 +1,11 @@
 package com.example.backup_college_scheduler.back.Todo;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +60,35 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
                 if (adapter.todoList != null) {
                     adapter.todoList.remove(getAdapterPosition());
                     adapter.notifyItemRemoved(getAdapterPosition());
+                }
+            });
+
+            itemView.findViewById(R.id.editTodoButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Dialog dialog = new Dialog(view.getContext());
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.fragment_edit_todo);
+
+                    EditText nameEt = dialog.findViewById(R.id.updateTodoName);
+                    EditText courseEt = dialog.findViewById(R.id.updateTodoCourse);
+                    EditText dueDateEt = dialog.findViewById(R.id.updateTodoDueDate);
+                    Button submitButton = dialog.findViewById(R.id.updateTodoButton);
+
+                    submitButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String name = nameEt.getText().toString();
+                            String course = courseEt.getText().toString();
+                            String dueDate = dueDateEt.getText().toString();
+                            Todo task = adapter.todoList.get(getAdapterPosition());
+                            task.update(new Todo(name, course, dueDate));
+                            adapter.notifyItemChanged(getAdapterPosition());
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
                 }
             });
         }

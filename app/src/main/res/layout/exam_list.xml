@@ -37,6 +37,15 @@
                 android:textSize="20sp"
                 tools:text="Exam" />
 
+            <TextView
+                android:id="@+id/examDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#454545"
+                android:textSize="16sp"
+                tools:text="Description" />
+
             <!--TextView for displaying assignment course -->
             <TextView
                 android:id="@+id/examCourseName"
