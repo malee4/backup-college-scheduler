@@ -120,15 +120,6 @@ public class AssignmentFragment extends Fragment {
                 dialog.show();
             }
         });
-
-//        view.findViewById(R.id.addAssignmentButton).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog dialog = new AlertDialog.Builder(getContext()).create(); //Read Update
-//                dialog.setContentView(R.layout.fragment_add_new_assignment);
-//                dialog.show();
-//            }
-//        });
     }
 
 
