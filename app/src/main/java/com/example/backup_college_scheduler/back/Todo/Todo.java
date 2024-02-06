@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Todo;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -11,13 +11,10 @@ public class Todo implements Serializable {
 
     public String dueDate;
 
-//    public Date notificationTime;
-
     public Todo() {
         this.name = "";
         this.courseName = "";
         this.dueDate = null;
-//        this.notificationTime = null;
     }
 
     public Todo(String name,

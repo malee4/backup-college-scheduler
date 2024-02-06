@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Course;
 
 import java.io.Serializable;
 

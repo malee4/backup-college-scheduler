@@ -1,18 +1,8 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Assigment;
 
 import java.util.ArrayList;
 
 public class AssignmentList {
-    /**
-     *     public String name;
-     *
-     *     public String courseName;
-     *
-     *     public String dueDate;
-     *
-     *     public boolean done;
-     */
-
     private static ArrayList<Assignment> list = new ArrayList<>();
 
     public static ArrayList<Assignment> getAssignmentData() {

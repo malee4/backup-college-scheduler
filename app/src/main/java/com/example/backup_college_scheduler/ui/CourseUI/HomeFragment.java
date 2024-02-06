@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.backup_college_scheduler.Course;
-import com.example.backup_college_scheduler.CourseAdapter;
-import com.example.backup_college_scheduler.CourseList;
+import com.example.backup_college_scheduler.back.Course.Course;
+import com.example.backup_college_scheduler.back.Course.CourseAdapter;
+import com.example.backup_college_scheduler.back.Course.CourseList;
 import com.example.backup_college_scheduler.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Assigment;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -13,14 +13,11 @@ public class Assignment implements Serializable {
 
     public boolean done;
 
-//    public Date notificationTime;
-
     public Assignment() {
         this.name = "";
         this.courseName = "";
         this.dueDate = null;
         this.done = false;
-//        this.notificationTime = null;
     }
 
     public Assignment(String name,
@@ -30,7 +27,6 @@ public class Assignment implements Serializable {
         this.courseName = courseName;
         this.dueDate = dueDate;
         this.done = false;
-//        this.notificationTime = notificationTime;
     }
 
     public String getName() {
@@ -64,13 +60,4 @@ public class Assignment implements Serializable {
     public void setDone(boolean done) {
         this.done = done;
     }
-
-//    public Date getNotificationTime() {
-//        return notificationTime;
-//    }
-//
-//    public void setNotificationTime(Date notificationTime) {
-//        this.notificationTime = notificationTime;
-//    }
-
 }
