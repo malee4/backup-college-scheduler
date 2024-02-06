@@ -15,7 +15,7 @@ import com.example.backup_college_scheduler.R;
 import com.example.backup_college_scheduler.back.Todo.Todo;
 import com.example.backup_college_scheduler.back.Todo.TodoAdapter;
 import com.example.backup_college_scheduler.back.Todo.TodoList;
-import com.example.backup_college_scheduler.ui.AssignmentUI.DashboardFragment;
+import com.example.backup_college_scheduler.ui.AssignmentUI.AssignmentFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -93,10 +93,10 @@ public class TodoFragment extends Fragment {
     }
 
 
-    public static DashboardFragment newInstance(String param1,
-                                                String param2)
+    public static AssignmentFragment newInstance(String param1,
+                                                 String param2)
     {
-        DashboardFragment fragment = new DashboardFragment();
+        AssignmentFragment fragment = new AssignmentFragment();
         Bundle args = new Bundle();
         args.putString("param1", param1);
         args.putString("param2", param2);

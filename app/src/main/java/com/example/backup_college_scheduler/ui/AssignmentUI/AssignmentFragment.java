@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class DashboardFragment extends Fragment {
+public class AssignmentFragment extends Fragment {
     private String param1;
     private String param2;
 
@@ -105,10 +105,10 @@ public class DashboardFragment extends Fragment {
     }
 
 
-    public static DashboardFragment newInstance(String param1,
-                                            String param2)
+    public static AssignmentFragment newInstance(String param1,
+                                                 String param2)
     {
-        DashboardFragment fragment = new DashboardFragment();
+        AssignmentFragment fragment = new AssignmentFragment();
         Bundle args = new Bundle();
         args.putString("param1", param1);
         args.putString("param2", param2);

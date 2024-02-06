@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.backup_college_scheduler.ui.AssignmentUI.DashboardFragment"
+        android:name="com.example.backup_college_scheduler.ui.AssignmentUI.AssignmentFragment"
         android:label="@string/title_assignments"
         tools:layout="@layout/fragment_assignments" />
 
