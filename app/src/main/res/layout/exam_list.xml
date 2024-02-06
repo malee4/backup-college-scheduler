@@ -71,10 +71,10 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/updateExamButton"
+                    android:id="@+id/editExamButton"
                     android:layout_width="168dp"
                     android:layout_height="wrap_content"
-                    android:text="Update" />
+                    android:text="Edit" />
 
                 <Button
                     android:id="@+id/deleteExamButton"

@@ -23,6 +23,13 @@ tools:context=".ui.CourseUI.HomeFragment">
         android:textStyle="bold"
         android:text="Courses"/>
 
+    <Button
+        android:id="@+id/addCourseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Course"
+        android:textAlignment="center" />
+
     <!--RecyclerView-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"

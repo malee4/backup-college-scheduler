@@ -23,6 +23,31 @@
             android:textStyle="bold"
             android:text="Exams"/>
 
+        <Button
+            android:id="@+id/addExamButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Exam"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sortByClass"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:text="Sort by Class" />
+
+            <Button
+                android:id="@+id/sortByDueDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sort by Due Date" />
+        </LinearLayout>
+
         <!--RecyclerView-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleView"
