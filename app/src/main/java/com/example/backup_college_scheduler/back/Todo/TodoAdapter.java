@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
+import com.example.backup_college_scheduler.back.Exam.Exam;
 
 import java.util.ArrayList;
 
@@ -64,6 +65,11 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
             this.adapter = adapter;
             return this;
         }
+    }
+
+    public void addNewTodo(Todo t) {
+        this.todoList.add(t);
+        this.notifyItemInserted(todoList.size());
     }
 
 }

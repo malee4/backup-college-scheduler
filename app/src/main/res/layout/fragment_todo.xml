@@ -29,7 +29,7 @@
         <!--RecyclerView-->
 
         <Button
-            android:id="@+id/addTodo"
+            android:id="@+id/addTodoButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Todo"
