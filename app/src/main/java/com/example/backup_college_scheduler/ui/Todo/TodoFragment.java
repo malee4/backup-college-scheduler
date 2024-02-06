@@ -1,9 +1,12 @@
 package com.example.backup_college_scheduler.ui.Todo;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,10 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
+import com.example.backup_college_scheduler.back.Exam.Exam;
+import com.example.backup_college_scheduler.back.Exam.ExamAdapter;
 import com.example.backup_college_scheduler.back.Todo.Todo;
 import com.example.backup_college_scheduler.back.Todo.TodoAdapter;
 import com.example.backup_college_scheduler.back.Todo.TodoList;
 import com.example.backup_college_scheduler.ui.AssignmentUI.AssignmentFragment;
+import com.example.backup_college_scheduler.ui.ExamUI.ExamFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +32,7 @@ public class TodoFragment extends Fragment {
     private String param1;
     private String param2;
 
+    public static TodoAdapter itemAdapter;
     //    private FragmentDashboardBinding binding;
     //    ArrayList<Assignment> assignmentArrayList = new ArrayList<>();
     @Override
@@ -55,7 +62,7 @@ public class TodoFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Todo> todoList
                 = TodoList.getTodoData();
-        TodoAdapter itemAdapter = new TodoAdapter(todoList);
+        this.itemAdapter = new TodoAdapter(todoList);
         // Set the LayoutManager that
         // this RecyclerView will use.
         RecyclerView recyclerView
@@ -88,6 +95,34 @@ public class TodoFragment extends Fragment {
                     }
                 });
                 itemAdapter.notifyDataSetChanged();
+            }
+        });
+
+        Button openDialog = view.findViewById(R.id.addTodoButton);
+        openDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_add_new_todo);
+
+                EditText nameEt = dialog.findViewById(R.id.newTodoName);
+                EditText courseEt = dialog.findViewById(R.id.newTodoCourse);
+                EditText dueDateEt = dialog.findViewById(R.id.newTodoDueDate);
+                Button submitButton = dialog.findViewById(R.id.newTodoAddButton);
+
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = nameEt.getText().toString();
+                        String course = courseEt.getText().toString();
+                        String dueDate = dueDateEt.getText().toString();
+                        TodoFragment.itemAdapter.addNewTodo(new Todo(name, course, dueDate));
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
             }
         });
     }

@@ -1,9 +1,12 @@
 package com.example.backup_college_scheduler.ui.ExamUI;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,10 +14,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.backup_college_scheduler.back.Course.Course;
+import com.example.backup_college_scheduler.back.Course.CourseAdapter;
 import com.example.backup_college_scheduler.back.Exam.Exam;
 import com.example.backup_college_scheduler.back.Exam.ExamAdapter;
 import com.example.backup_college_scheduler.back.Exam.ExamList;
 import com.example.backup_college_scheduler.R;
+import com.example.backup_college_scheduler.ui.CourseUI.CourseFragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +29,8 @@ import java.util.Comparator;
 public class ExamFragment extends Fragment {
     private String param1;
     private String param2;
+
+    public static ExamAdapter itemAdapter;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -51,7 +59,7 @@ public class ExamFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Exam> examList
                 = ExamList.getExamData();
-        ExamAdapter itemAdapter = new ExamAdapter(examList);
+        this.itemAdapter = new ExamAdapter(examList);
         // Set the LayoutManager that
         // this RecyclerView will use.
         RecyclerView recyclerView
@@ -83,6 +91,38 @@ public class ExamFragment extends Fragment {
                     }
                 });
                 itemAdapter.notifyDataSetChanged();
+            }
+        });
+
+        Button openDialog = view.findViewById(R.id.addExamButton);
+        openDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_add_new_exam);
+
+                EditText nameEt = dialog.findViewById(R.id.newExamName);
+                EditText descriptionEt = dialog.findViewById(R.id.newExamDescription);
+                EditText courseEt = dialog.findViewById(R.id.newExamCourse);
+                EditText locationEt = dialog.findViewById(R.id.newExamLocation);
+                EditText timeEt = dialog.findViewById(R.id.newExamTime);
+                Button submitButton = dialog.findViewById(R.id.newExamAddButton);
+
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = nameEt.getText().toString();
+                        String description = descriptionEt.getText().toString();
+                        String course = courseEt.getText().toString();
+                        String location = locationEt.getText().toString();
+                        String time = timeEt.getText().toString();
+                        ExamFragment.itemAdapter.addNewExam(new Exam(name, description, course, location, time));
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
             }
         });
     }

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingBottom="50dp"
     tools:context=".ui.ExamUI.ExamFragment">
 
     <!--Linear layout orientation vertical-->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <!--TextView-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="20sp"
+            android:text="Exams"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="Exams"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/addExamButton"
@@ -53,7 +53,7 @@
             android:id="@+id/recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/exam_list"/>
+            tools:listitem="@layout/exam_list" />
 
     </LinearLayout>
 

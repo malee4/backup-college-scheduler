@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
+import com.example.backup_college_scheduler.back.Assigment.Assignment;
 
 import java.util.ArrayList;
 
@@ -69,6 +70,9 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         }
     }
 
-
+    public void addNewCourse(Course c) {
+        this.courseList.add(c);
+        this.notifyItemInserted(courseList.size());
+    }
 
 }

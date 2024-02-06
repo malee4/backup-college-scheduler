@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
+import com.example.backup_college_scheduler.back.Assigment.Assignment;
 
 import java.util.ArrayList;
 
@@ -67,5 +68,10 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
             this.adapter = adapter;
             return this;
         }
+    }
+
+    public void addNewExam(Exam e) {
+        this.examList.add(e);
+        this.notifyItemInserted(examList.size());
     }
 }

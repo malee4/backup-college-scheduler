@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@color/teal_200"
+    android:paddingLeft="21dp"
+    android:paddingRight="21dp"
+    android:paddingBottom="11dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_margin="21dp"
+        android:text="Add Course"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Course Name"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newCourseName"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Instructor"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newCourseInstructor"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Description"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newCourseDescription"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Times (W 00:00tm-00:00tm)"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newCourseTimes"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/newCourseAddButton"
+        android:layout_marginTop="11dp"
+        android:layout_gravity="end"/>
+</LinearLayout>
