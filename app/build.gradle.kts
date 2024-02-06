@@ -37,7 +37,7 @@ android {
             java {
                 srcDirs(
                     "src/main/java",
-                    "src/main/java/com/example/backup_college_scheduler/backend"
+                    "src/main/java/com/example/backup_college_scheduler/backend", "src/main/java/com/example/backup_college_scheduler/ui/ToDoUI"
                 )
             }
         }

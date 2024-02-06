@@ -1,5 +1,6 @@
 package com.example.backup_college_scheduler;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
     public AssignmentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the layout for each item and return a new ViewHolder object
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.assignment_list, parent, false);
+
         return new AssignmentViewHolder(itemView).linkAdapter(this);
     }
 
@@ -57,6 +59,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
                     adapter.notifyItemRemoved(getAdapterPosition());
                 }
             });
+
+
         }
 
         public AssignmentViewHolder linkAdapter(AssignmentAdapter adapter) {

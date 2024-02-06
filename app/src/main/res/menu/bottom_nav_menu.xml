@@ -15,4 +15,8 @@
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_exams" />
+    <item
+        android:id="@+id/navigation_todo"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/todo_string" />
 </menu>
