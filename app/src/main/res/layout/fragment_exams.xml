@@ -36,16 +36,16 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/sortByClass"
+                android:id="@+id/sortExamByClass"
                 android:layout_width="207dp"
                 android:layout_height="wrap_content"
                 android:text="Sort by Class" />
 
             <Button
-                android:id="@+id/sortByDueDate"
+                android:id="@+id/sortExamByDueDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sort by Due Date" />
+                android:text="Sort by Date" />
         </LinearLayout>
 
         <!--RecyclerView-->

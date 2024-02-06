@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.backup_college_scheduler.Assignment;
 import com.example.backup_college_scheduler.AssignmentAdapter;
 import com.example.backup_college_scheduler.AssignmentList;
+import com.example.backup_college_scheduler.Exam;
 import com.example.backup_college_scheduler.R;
 import com.example.backup_college_scheduler.Todo;
 import com.example.backup_college_scheduler.TodoAdapter;
@@ -21,6 +22,8 @@ import com.example.backup_college_scheduler.TodoList;
 import com.example.backup_college_scheduler.ui.AssignmentUI.DashboardFragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoFragment extends Fragment {
 
@@ -50,8 +53,7 @@ public class TodoFragment extends Fragment {
     }
 
     @Override
-    public void
-    onViewCreated(@NonNull View view,
+    public void onViewCreated(@NonNull View view,
                   @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
@@ -68,6 +70,30 @@ public class TodoFragment extends Fragment {
         // adapter instance is set to the
         // recyclerview to inflate the items.
         recyclerView.setAdapter(itemAdapter);
+
+        view.findViewById(R.id.sortTodoByClass).setOnClickListener(fragmentView -> {
+            if (todoList != null) {
+                Collections.sort(todoList, new Comparator<Todo>() {
+                    @Override
+                    public int compare(Todo a, Todo b) {
+                        return a.getCourseName().compareTo(b.getCourseName());
+                    }
+                });
+                itemAdapter.notifyDataSetChanged();
+            }
+        });
+
+        view.findViewById(R.id.sortTodoByDueDate).setOnClickListener(fragmentView -> {
+            if (todoList != null) {
+                Collections.sort(todoList, new Comparator<Todo>() {
+                    @Override
+                    public int compare(Todo a, Todo b) {
+                        return a.getDueDate().compareTo(b.getDueDate());
+                    }
+                });
+                itemAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
 

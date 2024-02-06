@@ -21,6 +21,8 @@ import com.example.backup_college_scheduler.MainActivity;
 import com.example.backup_college_scheduler.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class DashboardFragment extends Fragment {
     private String param1;
@@ -72,6 +74,35 @@ public class DashboardFragment extends Fragment {
                 AlertDialog dialog = new AlertDialog.Builder(getContext()).create(); //Read Update
                 dialog.setContentView(R.layout.add_update_assignment);
                 dialog.show();
+            }
+        });
+
+//        itemView.findViewById(R.id.assignmentDoneButton).setOnClickListener(view -> {
+//            if (adapter.assignmentList != null) {
+//                adapter.assignmentList.remove(getAdapterPosition());
+//                adapter.notifyItemRemoved(getAdapterPosition());
+//            }
+//        });
+        view.findViewById(R.id.sortAssignmentByClass).setOnClickListener(fragmentView -> {
+            if (assignmentList != null) {
+                Collections.sort(assignmentList, new Comparator<Assignment>() {
+                    @Override
+                    public int compare(Assignment a, Assignment b) {
+                        return a.getCourseName().compareTo(b.getCourseName());
+                    }
+                });
+                itemAdapter.notifyDataSetChanged();
+            }
+        });
+
+        view.findViewById(R.id.sortAssignmentByDueDate).setOnClickListener(fragmentView -> {
+            if (assignmentList != null) {
+                Collections.sort(assignmentList, new Comparator<Assignment>() {
+                    @Override
+                    public int compare(Assignment a, Assignment b) {
+                        return a.getDueDate().compareTo(b.getDueDate());
+                    }
+                });
             }
         });
     }
