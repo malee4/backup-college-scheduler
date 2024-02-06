@@ -58,8 +58,6 @@ public class AssignmentFragment extends Fragment {
         // this RecyclerView will use.
         RecyclerView recyclerView
                 = view.findViewById(R.id.recycleView);
-//        recyclerView.setLayoutManager(
-//                new LinearLayoutManager(getContext()));
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         // adapter instance is set to the
         // recyclerview to inflate the items.
