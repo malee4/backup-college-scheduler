@@ -1,5 +1,7 @@
 package com.example.backup_college_scheduler.back.Assigment;
 
+import com.example.backup_college_scheduler.back.Todo.Todo;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -11,13 +13,10 @@ public class Assignment implements Serializable {
 
     public String dueDate;
 
-    public boolean done;
-
     public Assignment() {
         this.name = "";
         this.courseName = "";
         this.dueDate = null;
-        this.done = false;
     }
 
     public Assignment(String name,
@@ -26,7 +25,18 @@ public class Assignment implements Serializable {
         this.name = name;
         this.courseName = courseName;
         this.dueDate = dueDate;
-        this.done = false;
+    }
+
+    public void update(Assignment t) {
+        if (!t.name.equals("")) {
+            this.name = t.name;
+        }
+        if (!t.courseName.equals("")) {
+            this.courseName = t.courseName;
+        }
+        if (!t.dueDate.equals("")) {
+            this.dueDate = t.dueDate;
+        }
     }
 
     public String getName() {
@@ -51,13 +61,5 @@ public class Assignment implements Serializable {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
-    }
-
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
     }
 }

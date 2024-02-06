@@ -16,54 +16,45 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="#fff"
+        android:id="@+id/updateTodoTitle"
         android:layout_margin="21dp"
-        android:text="Add Course"/>
+        android:text="Edit Todo"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Course Name"
+        android:hint="Update Name"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseName"
+        android:id="@+id/updateTodoName"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Description"
+        android:hint="Update Course"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseDescription"
+        android:id="@+id/updateTodoCourse"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Instructor"
+        android:hint="Update Due Date(YYYY:MM:DD)"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseInstructor"
-        android:layout_marginBottom="11dp"
-        android:inputType="text"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Times (W 00:00tm-00:00tm)"
-        android:background="#fff"
-        android:padding="11dp"
-        android:id="@+id/newCourseTimes"
+        android:id="@+id/updateTodoDueDate"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/newCourseAddButton"
+        android:text="Update"
+        android:id="@+id/updateTodoButton"
         android:layout_marginTop="11dp"
         android:layout_gravity="end"/>
 </LinearLayout>

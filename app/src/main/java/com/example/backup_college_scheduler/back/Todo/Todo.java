@@ -25,6 +25,18 @@ public class Todo implements Serializable {
         this.dueDate = dueDate;
     }
 
+    public void update(Todo t) {
+        if (!t.name.equals("")) {
+            this.name = t.name;
+        }
+        if (!t.courseName.equals("")) {
+            this.courseName = t.courseName;
+        }
+        if (!t.dueDate.equals("")) {
+            this.dueDate = t.dueDate;
+        }
+    }
+
     public String getName() {
         return name;
     }

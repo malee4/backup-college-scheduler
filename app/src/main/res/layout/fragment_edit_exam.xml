@@ -16,54 +16,64 @@
         android:textSize="32sp"
         android:textStyle="bold"
         android:textColor="#fff"
+        android:id="@+id/updateExamTitle"
         android:layout_margin="21dp"
-        android:text="Add Course"/>
+        android:text="Edit Exam"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Course Name"
+        android:hint="Update Name"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseName"
+        android:id="@+id/updateExamName"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Description"
+        android:hint="Update Description"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseDescription"
+        android:id="@+id/updateExamDescription"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Instructor"
+        android:hint="Update Course"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseInstructor"
+        android:id="@+id/updateExamCourse"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Update Location"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/updateExamLocation"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Times (W 00:00tm-00:00tm)"
+        android:hint="Update Due Date(YYYY:MM:DD)"
         android:background="#fff"
         android:padding="11dp"
-        android:id="@+id/newCourseTimes"
+        android:id="@+id/updateExamDate"
         android:layout_marginBottom="11dp"
         android:inputType="text"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/newCourseAddButton"
+        android:text="Update"
+        android:id="@+id/updateExamButton"
         android:layout_marginTop="11dp"
         android:layout_gravity="end"/>
 </LinearLayout>
