@@ -1,11 +1,6 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Course;
 
 import java.util.ArrayList;
-
-//private String name;
-//private String description;
-//private String instructor;
-//private String courseTime;
 
 public class CourseList {
 

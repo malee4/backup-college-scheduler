@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler.ui;
+package com.example.backup_college_scheduler.ui.Todo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,14 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.backup_college_scheduler.Assignment;
-import com.example.backup_college_scheduler.AssignmentAdapter;
-import com.example.backup_college_scheduler.AssignmentList;
-import com.example.backup_college_scheduler.Exam;
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.Todo;
-import com.example.backup_college_scheduler.TodoAdapter;
-import com.example.backup_college_scheduler.TodoList;
+import com.example.backup_college_scheduler.back.Todo.Todo;
+import com.example.backup_college_scheduler.back.Todo.TodoAdapter;
+import com.example.backup_college_scheduler.back.Todo.TodoList;
 import com.example.backup_college_scheduler.ui.AssignmentUI.DashboardFragment;
 
 import java.util.ArrayList;

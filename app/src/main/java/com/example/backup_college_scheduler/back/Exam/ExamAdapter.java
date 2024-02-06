@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Exam;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.backup_college_scheduler.R;
 
 import java.util.ArrayList;
 

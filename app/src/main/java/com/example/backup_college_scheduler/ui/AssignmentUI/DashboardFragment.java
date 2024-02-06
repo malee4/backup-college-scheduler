@@ -1,8 +1,6 @@
 package com.example.backup_college_scheduler.ui.AssignmentUI;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.backup_college_scheduler.Assignment;
-import com.example.backup_college_scheduler.AssignmentAdapter;
-import com.example.backup_college_scheduler.AssignmentList;
-import com.example.backup_college_scheduler.MainActivity;
+import com.example.backup_college_scheduler.back.Assigment.Assignment;
+import com.example.backup_college_scheduler.back.Assigment.AssignmentAdapter;
+import com.example.backup_college_scheduler.back.Assigment.AssignmentList;
 import com.example.backup_college_scheduler.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.backup_college_scheduler;
+package com.example.backup_college_scheduler.back.Todo;
 
 import java.util.ArrayList;
 
