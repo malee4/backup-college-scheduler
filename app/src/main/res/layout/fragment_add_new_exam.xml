@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@color/teal_200"
+    android:paddingLeft="21dp"
+    android:paddingRight="21dp"
+    android:paddingBottom="11dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:id="@+id/addExamTitle"
+        android:layout_margin="21dp"
+        android:text="Add Exam"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Exam Name"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newExamName"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Description"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newExamDescription"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Course"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newExamCourse"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Location"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newExamLocation"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Time"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/newExamTime"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/newExamAddButton"
+        android:layout_marginTop="11dp"
+        android:layout_gravity="end"/>
+</LinearLayout>
