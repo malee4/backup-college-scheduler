@@ -90,6 +90,9 @@ public class AssignmentFragment extends Fragment {
                         return a.getDueDate().compareTo(b.getDueDate());
                     }
                 });
+
+                itemAdapter.notifyDataSetChanged();
+
             }
         });
 
