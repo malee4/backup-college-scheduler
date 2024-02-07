@@ -11,14 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.back.Todo.Todo;
-
-import java.util.ArrayList;
 
 public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.AssignmentViewHolder> {
-    public ArrayList<Assignment> assignmentList;
+    private AssignmentList assignmentList;
 
-    public AssignmentAdapter(ArrayList<Assignment> assignmentList) {
+    public AssignmentAdapter(AssignmentList assignmentList) {
         this.assignmentList = assignmentList;
     }
 
@@ -68,33 +65,26 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
                 }
             });
 
-            itemView.findViewById(R.id.editAssignmentButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Dialog dialog = new Dialog(view.getContext());
-                    dialog.setCancelable(true);
-                    dialog.setContentView(R.layout.fragment_edit_assignment);
+            itemView.findViewById(R.id.editAssignmentButton).setOnClickListener(view -> {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_edit_assignment);
 
-                    EditText nameEt = dialog.findViewById(R.id.updateAssignmentName);
-                    EditText courseEt = dialog.findViewById(R.id.updateAssignmentCourse);
-                    EditText dueDateEt = dialog.findViewById(R.id.updateAssignmentDueDate);
-                    Button submitButton = dialog.findViewById(R.id.updateAssignmentButton);
+                EditText nameEt = dialog.findViewById(R.id.updateAssignmentName);
+                EditText courseEt = dialog.findViewById(R.id.updateAssignmentCourse);
+                EditText dueDateEt = dialog.findViewById(R.id.updateAssignmentDueDate);
+                Button submitButton = dialog.findViewById(R.id.updateAssignmentButton);
 
-                    submitButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String name = nameEt.getText().toString();
-                            String course = courseEt.getText().toString();
-                            String dueDate = dueDateEt.getText().toString();
-                            Assignment assignment = adapter.assignmentList.get(getAdapterPosition());
-                            assignment.update(new Assignment(name, course, dueDate));
-                            adapter.notifyItemChanged(getAdapterPosition());
-                            dialog.dismiss();
-                        }
-                    });
+                submitButton.setOnClickListener(v -> {
+                    String name = nameEt.getText().toString();
+                    String course = courseEt.getText().toString();
+                    String dueDate = dueDateEt.getText().toString();
+                    adapter.assignmentList.update(getAdapterPosition(), new Assignment(name, course, dueDate));
+                    adapter.notifyItemChanged(getAdapterPosition());
+                    dialog.dismiss();
+                });
 
-                    dialog.show();
-                }
+                dialog.show();
             });
         }
 
@@ -103,5 +93,4 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
             return this;
         }
     }
-
 }

@@ -1,18 +1,12 @@
 package com.example.backup_college_scheduler.back.Exam;
 
-import com.example.backup_college_scheduler.back.Todo.Todo;
-
 import java.io.Serializable;
 
 public class Exam implements Serializable {
     private String name;
-
     private String description;
-
     private String courseName;
-
     private String location;
-
     private String time;
 
     public Exam() {
@@ -23,11 +17,7 @@ public class Exam implements Serializable {
         this.time = "";
     }
 
-    public Exam(String name,
-                String description,
-                String courseName,
-                String location,
-                String time) {
+    public Exam(String name, String description, String courseName, String location, String time) {
         this.name = name;
         this.description = description;
         this.courseName = courseName;
@@ -35,21 +25,21 @@ public class Exam implements Serializable {
         this.time = time;
     }
 
-    public void update(Exam t) {
-        if (!t.name.equals("")) {
-            this.name = t.name;
+    public void update(Exam exam) {
+        if (!exam.getName().isEmpty()) {
+            this.name = exam.getName();
         }
-        if (!t.description.equals("")) {
-            this.description = t.description;
+        if (!exam.getDescription().isEmpty()) {
+            this.description = exam.getDescription();
         }
-        if (!t.courseName.equals("")) {
-            this.courseName = t.courseName;
+        if (!exam.getCourseName().isEmpty()) {
+            this.courseName = exam.getCourseName();
         }
-        if (!t.location.equals("")) {
-            this.location = t.location;
+        if (!exam.getLocation().isEmpty()) {
+            this.location = exam.getLocation();
         }
-        if (!t.time.equals("")) {
-            this.time = t.time;
+        if (!exam.getTime().isEmpty()) {
+            this.time = exam.getTime();
         }
     }
 

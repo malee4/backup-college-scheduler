@@ -8,20 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.back.Exam.Exam;
-
-import java.util.ArrayList;
 
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder> {
-    public ArrayList<Todo> todoList;
+    private TodoList todoList;
 
-    public TodoAdapter(ArrayList<Todo> todoList) {
+    public TodoAdapter(TodoList todoList) {
         this.todoList = todoList;
     }
 
+    @NonNull
     @Override
     public TodoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the layout for each item and return a new ViewHolder object
@@ -35,12 +34,16 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         holder.todoName.setText(currTodo.getName());
         holder.todoCourse.setText(currTodo.getCourseName());
         holder.todoDueDate.setText(currTodo.getDueDate());
-
     }
 
     @Override
     public int getItemCount() {
         return todoList.size();
+    }
+
+    public void addNewTodo(Todo t) {
+        this.todoList.add(t);
+        this.notifyItemInserted(todoList.size());
     }
 
     public static class TodoViewHolder extends RecyclerView.ViewHolder {
@@ -63,33 +66,26 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
                 }
             });
 
-            itemView.findViewById(R.id.editTodoButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Dialog dialog = new Dialog(view.getContext());
-                    dialog.setCancelable(true);
-                    dialog.setContentView(R.layout.fragment_edit_todo);
+            itemView.findViewById(R.id.editTodoButton).setOnClickListener(view -> {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_edit_todo);
 
-                    EditText nameEt = dialog.findViewById(R.id.updateTodoName);
-                    EditText courseEt = dialog.findViewById(R.id.updateTodoCourse);
-                    EditText dueDateEt = dialog.findViewById(R.id.updateTodoDueDate);
-                    Button submitButton = dialog.findViewById(R.id.updateTodoButton);
+                EditText nameEt = dialog.findViewById(R.id.updateTodoName);
+                EditText courseEt = dialog.findViewById(R.id.updateTodoCourse);
+                EditText dueDateEt = dialog.findViewById(R.id.updateTodoDueDate);
+                Button submitButton = dialog.findViewById(R.id.updateTodoButton);
 
-                    submitButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String name = nameEt.getText().toString();
-                            String course = courseEt.getText().toString();
-                            String dueDate = dueDateEt.getText().toString();
-                            Todo task = adapter.todoList.get(getAdapterPosition());
-                            task.update(new Todo(name, course, dueDate));
-                            adapter.notifyItemChanged(getAdapterPosition());
-                            dialog.dismiss();
-                        }
-                    });
+                submitButton.setOnClickListener(v -> {
+                    String name = nameEt.getText().toString();
+                    String course = courseEt.getText().toString();
+                    String dueDate = dueDateEt.getText().toString();
+                    adapter.todoList.update(getAdapterPosition(), new Todo(name, course, dueDate));
+                    adapter.notifyItemChanged(getAdapterPosition());
+                    dialog.dismiss();
+                });
 
-                    dialog.show();
-                }
+                dialog.show();
             });
         }
 
@@ -98,10 +94,4 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
             return this;
         }
     }
-
-    public void addNewTodo(Todo t) {
-        this.todoList.add(t);
-        this.notifyItemInserted(todoList.size());
-    }
-
 }

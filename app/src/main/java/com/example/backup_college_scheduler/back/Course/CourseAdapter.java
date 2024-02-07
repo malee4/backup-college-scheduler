@@ -11,14 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.back.Assigment.Assignment;
-
-import java.util.ArrayList;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
-    private ArrayList<Course> courseList;
+    private CourseList courseList;
 
-    public CourseAdapter(ArrayList<Course> courseList) {
+    public CourseAdapter(CourseList courseList) {
         this.courseList = courseList;
     }
 
@@ -43,14 +40,17 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         return courseList.size();
     }
 
+    public void addNewCourse(Course c) {
+        this.courseList.add(c);
+        this.notifyItemInserted(courseList.size());
+    }
+
     public static class CourseViewHolder extends RecyclerView.ViewHolder {
         private TextView courseName;
         private TextView instructor;
         private TextView courseDescription;
         private TextView courseTime;
-
         private CourseAdapter adapter;
-
 
         public CourseViewHolder(View itemView) {
             super(itemView);
@@ -66,35 +66,28 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                 }
             });
 
-            itemView.findViewById(R.id.editCourseButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Dialog dialog = new Dialog(view.getContext());
-                    dialog.setCancelable(true);
-                    dialog.setContentView(R.layout.fragment_edit_course);
+            itemView.findViewById(R.id.editCourseButton).setOnClickListener(view -> {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_edit_course);
 
-                    EditText nameEt = dialog.findViewById(R.id.updateCourseName);
-                    EditText descriptionEt = dialog.findViewById(R.id.updateCourseDescription);
-                    EditText instructorEt = dialog.findViewById(R.id.updateCourseInstructor);
-                    EditText timeEt = dialog.findViewById(R.id.updateCourseTime);
-                    Button submitButton = dialog.findViewById(R.id.updateCourseButton);
+                EditText nameEt = dialog.findViewById(R.id.updateCourseName);
+                EditText descriptionEt = dialog.findViewById(R.id.updateCourseDescription);
+                EditText instructorEt = dialog.findViewById(R.id.updateCourseInstructor);
+                EditText timeEt = dialog.findViewById(R.id.updateCourseTime);
+                Button submitButton = dialog.findViewById(R.id.updateCourseButton);
 
-                    submitButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String name = nameEt.getText().toString();
-                            String description = descriptionEt.getText().toString();
-                            String instructor = instructorEt.getText().toString();
-                            String time = timeEt.getText().toString();
-                            Course course = adapter.courseList.get(getAdapterPosition());
-                            course.update(new Course(name, description, instructor, time));
-                            adapter.notifyItemChanged(getAdapterPosition());
-                            dialog.dismiss();
-                        }
-                    });
+                submitButton.setOnClickListener(v -> {
+                    String name = nameEt.getText().toString();
+                    String description = descriptionEt.getText().toString();
+                    String instructor = instructorEt.getText().toString();
+                    String time = timeEt.getText().toString();
+                    adapter.courseList.update(getAdapterPosition(), new Course(name, description, instructor, time));
+                    adapter.notifyItemChanged(getAdapterPosition());
+                    dialog.dismiss();
+                });
 
-                    dialog.show();
-                }
+                dialog.show();
             });
         }
 
@@ -103,10 +96,4 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             return this;
         }
     }
-
-    public void addNewCourse(Course c) {
-        this.courseList.add(c);
-        this.notifyItemInserted(courseList.size());
-    }
-
 }
