@@ -36,8 +36,6 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.As
         holder.assignmentName.setText(currAssignment.getName());
         holder.assignmentCourse.setText(currAssignment.getCourseName());
         holder.assignmentDueDate.setText(currAssignment.getDueDate());
-
-
     }
 
     @Override
