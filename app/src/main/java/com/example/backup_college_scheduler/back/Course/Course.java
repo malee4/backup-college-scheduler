@@ -1,14 +1,10 @@
 package com.example.backup_college_scheduler.back.Course;
 
-import com.example.backup_college_scheduler.back.Todo.Todo;
-
 import java.io.Serializable;
 
 public class Course implements Serializable {
     private String name;
-
     private String description;
-
     private String instructor;
     private String courseTime;
 
@@ -19,28 +15,25 @@ public class Course implements Serializable {
         this.courseTime = "";
     }
 
-    public Course(String name,
-                  String description,
-                  String instructor,
-                  String courseTime) {
+    public Course(String name, String description, String instructor, String courseTime) {
         this.name = name;
         this.description = description;
         this.instructor = instructor;
         this.courseTime = courseTime;
     }
 
-    public void update(Course t) {
-        if (!t.name.equals("")) {
-            this.name = t.name;
+    public void update(Course course) {
+        if (!course.getName().isEmpty()) {
+            this.name = course.getName();
         }
-        if (!t.description.equals("")) {
-            this.description = t.description;
+        if (!course.getDescription().isEmpty()) {
+            this.description = course.getDescription();
         }
-        if (!t.instructor.equals("")) {
-            this.instructor = t.instructor;
+        if (!course.getInstructor().isEmpty()) {
+            this.instructor = course.getInstructor();
         }
-        if (!t.courseTime.equals("")) {
-            this.courseTime = t.courseTime;
+        if (!course.getCourseTime().isEmpty()) {
+            this.courseTime = course.getCourseTime();
         }
     }
 

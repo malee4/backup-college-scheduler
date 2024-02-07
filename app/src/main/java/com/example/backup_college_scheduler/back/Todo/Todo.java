@@ -1,15 +1,11 @@
 package com.example.backup_college_scheduler.back.Todo;
 
-import java.util.Date;
 import java.io.Serializable;
 
 public class Todo implements Serializable {
-
-    public String name;
-
-    public String courseName;
-
-    public String dueDate;
+    private String name;
+    private String courseName;
+    private String dueDate;
 
     public Todo() {
         this.name = "";
@@ -17,23 +13,21 @@ public class Todo implements Serializable {
         this.dueDate = null;
     }
 
-    public Todo(String name,
-                      String courseName,
-                      String dueDate) {
+    public Todo(String name, String courseName, String dueDate) {
         this.name = name;
         this.courseName = courseName;
         this.dueDate = dueDate;
     }
 
-    public void update(Todo t) {
-        if (!t.name.equals("")) {
-            this.name = t.name;
+    public void update(Todo todo) {
+        if (!todo.getName().isEmpty()) {
+            this.name = todo.getName();
         }
-        if (!t.courseName.equals("")) {
-            this.courseName = t.courseName;
+        if (!todo.getCourseName().isEmpty()) {
+            this.courseName = todo.getCourseName();
         }
-        if (!t.dueDate.equals("")) {
-            this.dueDate = t.dueDate;
+        if (!todo.getDueDate().isEmpty()) {
+            this.dueDate = todo.getDueDate();
         }
     }
 

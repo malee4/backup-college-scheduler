@@ -11,15 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.backup_college_scheduler.R;
-import com.example.backup_college_scheduler.back.Assigment.Assignment;
-import com.example.backup_college_scheduler.back.Todo.Todo;
-
-import java.util.ArrayList;
 
 public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder> {
-    private ArrayList<Exam> examList;
+    private ExamList examList;
 
-    public ExamAdapter(ArrayList<Exam> examList) {
+    public ExamAdapter(ExamList examList) {
         this.examList = examList;
     }
 
@@ -43,6 +39,11 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
     @Override
     public int getItemCount() {
         return examList.size();
+    }
+
+    public void addNewExam(Exam e) {
+        this.examList.add(e);
+        this.notifyItemInserted(examList.size());
     }
 
     public static class ExamViewHolder extends RecyclerView.ViewHolder {
@@ -70,37 +71,30 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
                 }
             });
 
-            itemView.findViewById(R.id.editExamButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Dialog dialog = new Dialog(view.getContext());
-                    dialog.setCancelable(true);
-                    dialog.setContentView(R.layout.fragment_edit_exam);
+            itemView.findViewById(R.id.editExamButton).setOnClickListener(view -> {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.fragment_edit_exam);
 
-                    EditText nameEt = dialog.findViewById(R.id.updateExamName);
-                    EditText descriptionEt = dialog.findViewById(R.id.updateExamDescription);
-                    EditText courseEt = dialog.findViewById(R.id.updateExamCourse);
-                    EditText locationEt = dialog.findViewById(R.id.updateExamLocation);
-                    EditText timeEt = dialog.findViewById(R.id.updateExamDate);
-                    Button submitButton = dialog.findViewById(R.id.updateExamButton);
+                EditText nameEt = dialog.findViewById(R.id.updateExamName);
+                EditText descriptionEt = dialog.findViewById(R.id.updateExamDescription);
+                EditText courseEt = dialog.findViewById(R.id.updateExamCourse);
+                EditText locationEt = dialog.findViewById(R.id.updateExamLocation);
+                EditText timeEt = dialog.findViewById(R.id.updateExamDate);
+                Button submitButton = dialog.findViewById(R.id.updateExamButton);
 
-                    submitButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String name = nameEt.getText().toString();
-                            String description = descriptionEt.getText().toString();
-                            String course = courseEt.getText().toString();
-                            String location = locationEt.getText().toString();
-                            String time = timeEt.getText().toString();
-                            Exam exam = adapter.examList.get(getAdapterPosition());
-                            exam.update(new Exam(name, description, course, location, time));
-                            adapter.notifyItemChanged(getAdapterPosition());
-                            dialog.dismiss();
-                        }
-                    });
+                submitButton.setOnClickListener(v -> {
+                    String name = nameEt.getText().toString();
+                    String description = descriptionEt.getText().toString();
+                    String course = courseEt.getText().toString();
+                    String location = locationEt.getText().toString();
+                    String time = timeEt.getText().toString();
+                    adapter.examList.update(getAdapterPosition(), new Exam(name, description, course, location, time));
+                    adapter.notifyItemChanged(getAdapterPosition());
+                    dialog.dismiss();
+                });
 
-                    dialog.show();
-                }
+                dialog.show();
             });
         }
 
@@ -108,10 +102,5 @@ public class ExamAdapter extends RecyclerView.Adapter<ExamAdapter.ExamViewHolder
             this.adapter = adapter;
             return this;
         }
-    }
-
-    public void addNewExam(Exam e) {
-        this.examList.add(e);
-        this.notifyItemInserted(examList.size());
     }
 }
